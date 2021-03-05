@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct HeaderSocialApp: Decodable {
+struct HeaderSocialSection: Decodable {
     let id: String
     let name: String
     let imageUrl: String

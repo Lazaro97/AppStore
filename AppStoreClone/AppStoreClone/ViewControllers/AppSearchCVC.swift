@@ -11,7 +11,7 @@ import SDWebImage
 class AppSearchCVC: UICollectionViewController,
                     UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
-    fileprivate let appSearchCell = "AppSearchCell"
+    fileprivate let appSearchCell    = "AppSearchCell"
     fileprivate let searchController = UISearchController(searchResultsController: nil)
     
     var appResults = [Result]()
@@ -78,7 +78,6 @@ class AppSearchCVC: UICollectionViewController,
         return .init(width: view.frame.width, height: 300)
     }
     
-    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let appDetailController = AppsDetailCVC()
         let appId = appResults[indexPath.item].trackId
@@ -98,10 +97,10 @@ class AppSearchCVC: UICollectionViewController,
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: appSearchCell, for: indexPath) as! AppSearchCell
+        let searchCell = collectionView.dequeueReusableCell(withReuseIdentifier: appSearchCell, for: indexPath) as! AppSearchCell
         let appResult = appResults[indexPath.item]
-        cell.appResult = appResult
-        return cell
+        searchCell.appResult = appResult
+        return searchCell
     }
     
     init(){

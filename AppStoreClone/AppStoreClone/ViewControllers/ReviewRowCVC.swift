@@ -9,7 +9,7 @@ import UIKit
 
 class ReviewRowCVC: HorizontalSnappingCollectionViewController,UICollectionViewDelegateFlowLayout {
 
-    var reviews: Reviews? {
+    var reviews: AppReviews? {
         didSet {
             self.collectionView.reloadData()
         }
@@ -37,17 +37,11 @@ class ReviewRowCVC: HorizontalSnappingCollectionViewController,UICollectionViewD
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! ReviewCell
+        let reviewCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! ReviewCell
         let entry = self.reviews?.feed.entry[indexPath.item]
-        cell.titleLabel.text = entry?.title.label
-        cell.authorLabel.text = entry?.author.name.label
-        cell.bodyLabel.text = entry?.content.label
-        return cell
+        reviewCell.titleLabel.text = entry?.title.label
+        reviewCell.authorLabel.text = entry?.author.name.label
+        reviewCell.bodyLabel.text = entry?.content.label
+        return reviewCell
     }
-    
-   
-
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return 16
-//    }
 }

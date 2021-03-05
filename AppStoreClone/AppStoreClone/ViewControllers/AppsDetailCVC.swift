@@ -15,7 +15,7 @@ class AppsDetailCVC: UICollectionViewController, UICollectionViewDelegateFlowLay
     let reviewRowCellID = "reviewRowCellID"
   
     var app: Result?
-    var reviews: Reviews?
+    var reviews: AppReviews?
     //This gives us data for the app detail and screenshots
     
     var appId: String! {

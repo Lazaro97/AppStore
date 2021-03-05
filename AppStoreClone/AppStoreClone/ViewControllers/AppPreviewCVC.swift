@@ -9,7 +9,7 @@ import UIKit
 
 class AppPreviewCVC: HorizontalSnappingCollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    let screenshotCell = "screenshotCell"
+    let appScrenShotPreviewCell = "screenshotCell"
     
     var app: Result? {
         didSet {
@@ -23,7 +23,7 @@ class AppPreviewCVC: HorizontalSnappingCollectionViewController, UICollectionVie
     }
     
     func configureCollectionView(){
-        collectionView.register(AppScreenshotCell.self, forCellWithReuseIdentifier: screenshotCell)
+        collectionView.register(AppScreenshotCell.self, forCellWithReuseIdentifier: appScrenShotPreviewCell)
         collectionView.contentInset = .init(top: 0, left: 15, bottom: 0, right: 15)
     }
     
@@ -32,9 +32,9 @@ class AppPreviewCVC: HorizontalSnappingCollectionViewController, UICollectionVie
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: screenshotCell, for: indexPath) as! AppScreenshotCell
-        let screenshotURL = self.app?.screenshotUrls[indexPath.item]
-        cell.screenShotImgView.sd_setImage(with: URL(string: screenshotURL ?? ""))
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: appScrenShotPreviewCell, for: indexPath) as! AppScreenshotCell
+        let appScreenshotURL = self.app?.screenshotUrls[indexPath.item]
+        cell.screenShotImgView.sd_setImage(with: URL(string: appScreenshotURL ?? ""))
         return cell
     }
     

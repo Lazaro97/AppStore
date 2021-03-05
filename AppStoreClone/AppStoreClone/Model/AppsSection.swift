@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AppsGroup: Decodable {
+struct AppsSection: Decodable {
     let feed: Feed
 }
 

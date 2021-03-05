@@ -12,7 +12,7 @@ import SDWebImage
 class AppsHorizontalCVC: HorizontalSnappingCollectionViewController,UICollectionViewDelegateFlowLayout {
 
     let appsHorizontallCell = "AppHorizontallCell"
-    var appGroup: AppsGroup?
+    var appGroup: AppsSection?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +43,7 @@ class AppsHorizontalCVC: HorizontalSnappingCollectionViewController,UICollection
     
     
     let topBottomPadding: CGFloat = 12
-    let lineSpacing: CGFloat = 10
+    let lineSpacing:     CGFloat = 10
     
     // MARK: Colllection View Cell Seperated into three cells.
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -69,13 +69,13 @@ class AppsHorizontalCVC: HorizontalSnappingCollectionViewController,UICollection
     
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: appsHorizontallCell, for: indexPath) as! AppHorizontalRowCell
+        let appsInfoCell = collectionView.dequeueReusableCell(withReuseIdentifier: appsHorizontallCell, for: indexPath) as! AppHorizontalRowCell
         let app = appGroup?.feed.results[indexPath.item]
         
-        cell.appNameLabel.text = app?.name
-        cell.appCompanyLabel.text = app?.artistName
-        cell.appImageView.sd_setImage(with: URL(string: app?.artworkUrl100 ?? ""))
-        return cell
+        appsInfoCell.appNameLabel.text = app?.name
+        appsInfoCell.appCompanyLabel.text = app?.artistName
+        appsInfoCell.appImageView.sd_setImage(with: URL(string: app?.artworkUrl100 ?? ""))
+        return appsInfoCell
 
     }
 }

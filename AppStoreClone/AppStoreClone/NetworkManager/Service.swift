@@ -42,7 +42,7 @@ class Service {
     
     //Helper Function for our appsGroup
     
-    func fetchAppData(urlString: String, completion: @escaping (AppsGroup?, Error?) -> Void ) {
+    func fetchAppData(urlString: String, completion: @escaping (AppsSection?, Error?) -> Void ) {
 
         guard let url = URL(string: urlString) else {return}
         
@@ -53,7 +53,7 @@ class Service {
                 return
             }
             do {
-                let appGroupData = try JSONDecoder().decode(AppsGroup.self , from: data!)
+                let appGroupData = try JSONDecoder().decode(AppsSection.self , from: data!)
                // appGroupData.feed.results.forEach({print($0.name)})
                 completion(appGroupData, nil)
             } catch {
@@ -65,18 +65,18 @@ class Service {
     }
     
     
-    func fetchTopGrossingApps(completion: @escaping (AppsGroup?, Error?)-> ()) {
+    func fetchTopGrossingApps(completion: @escaping (AppsSection?, Error?)-> ()) {
        let urlString = "https://rss.itunes.apple.com/api/v1/us/ios-apps/top-grossing/all/50/explicit.json"
        fetchAppData(urlString: urlString, completion: completion)
     }
     
-    func fetchGamesApps(completion: @escaping (AppsGroup?, Error?)-> ()) {
+    func fetchGamesApps(completion: @escaping (AppsSection?, Error?)-> ()) {
        let urlString = "https://rss.itunes.apple.com/api/v1/us/ios-apps/new-games-we-love/all/50/explicit.json"
        fetchAppData(urlString: urlString, completion: completion)
     }
     
 
-    func fetchHeaderSocialApps(completion: @escaping ([HeaderSocialApp], Error?) -> Void ){
+    func fetchHeaderSocialApps(completion: @escaping ([HeaderSocialSection], Error?) -> Void ){
         
         let urlString = "https://api.letsbuildthatapp.com/appstore/social"
         guard let url = URL(string: urlString) else {return}
@@ -89,7 +89,7 @@ class Service {
                 return
             }
             do {
-                let objects = try JSONDecoder().decode([HeaderSocialApp].self, from: data!)
+                let objects = try JSONDecoder().decode([HeaderSocialSection].self, from: data!)
                 completion(objects,error)
             } catch let jsonError {
                 print("Failes to decode JSON", jsonError)
@@ -121,7 +121,7 @@ class Service {
     }
     
     //Helper Function for Review Data
-    func fetchAppReview(urlString: String, completion: @escaping (Reviews?, Error?) -> Void ) {
+    func fetchAppReview(urlString: String, completion: @escaping (AppReviews?, Error?) -> Void ) {
 
         guard let url = URL(string: urlString) else {return}
         
@@ -132,7 +132,7 @@ class Service {
                 return
             }
             do {
-                let reviews = try JSONDecoder().decode(Reviews.self , from: data!)
+                let reviews = try JSONDecoder().decode(AppReviews.self , from: data!)
                 completion(reviews, nil)
             } catch {
                 completion(nil ,error)

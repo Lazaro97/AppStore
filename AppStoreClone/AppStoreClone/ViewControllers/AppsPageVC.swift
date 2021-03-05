@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppPageCVC: UICollectionViewController,UICollectionViewDelegateFlowLayout{
+class AppsPageVC: UICollectionViewController,UICollectionViewDelegateFlowLayout{
     
     fileprivate let appsCellID = "AppsCell"
     fileprivate let headerCellID = "HeaderCell"
@@ -27,22 +27,19 @@ class AppPageCVC: UICollectionViewController,UICollectionViewDelegateFlowLayout{
         registerAppGroupCell()
         activityIndicatorView.fillSuperview()
         fetchData()
-        navigationItem.largeTitleDisplayMode = .never
     }
     
-    var groups = [AppsGroup]()
-    var socialApps = [HeaderSocialApp]()
+    var groups = [AppsSection]()
+    var socialApps = [HeaderSocialSection]()
     
     private func fetchData(){
-    
-        var group1: AppsGroup?
-        var group2: AppsGroup?
-        var group3: AppsGroup?
+        var appGroupSection: AppsSection?
+        var topGrowsingAppsGroupSection: AppsSection?
+        var topFreeAppsGroupSection: AppsSection?
         
         //Helps your sync data fetchs together
         let dispatchGroup = DispatchGroup()
         
-       
         dispatchGroup.enter()
         Service.shared.fetchGamesApps { (appGroup, error) in
             dispatchGroup.leave()
@@ -50,7 +47,7 @@ class AppPageCVC: UICollectionViewController,UICollectionViewDelegateFlowLayout{
                 print("failed to fetch games", error)
                 return
             }
-            group1 = appGroup
+            appGroupSection = appGroup
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
@@ -59,8 +56,7 @@ class AppPageCVC: UICollectionViewController,UICollectionViewDelegateFlowLayout{
         dispatchGroup.enter()
         Service.shared.fetchTopGrossingApps { (appGroup, error ) in
             dispatchGroup.leave()
-             group2 = appGroup
-              
+             topGrowsingAppsGroupSection = appGroup
               DispatchQueue.main.async {
                   self.collectionView.reloadData()
               }
@@ -69,7 +65,7 @@ class AppPageCVC: UICollectionViewController,UICollectionViewDelegateFlowLayout{
         dispatchGroup.enter()
         Service.shared.fetchAppData(urlString: "https://rss.itunes.apple.com/api/v1/us/ios-apps/top-free/all/50/explicit.json") { (appGroup, error) in
             dispatchGroup.leave()
-            group3 = appGroup
+            topFreeAppsGroupSection = appGroup
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
@@ -80,22 +76,20 @@ class AppPageCVC: UICollectionViewController,UICollectionViewDelegateFlowLayout{
             Service.shared.fetchHeaderSocialApps { (apps, error) in
                 dispatchGroup.leave()
                 self.socialApps = apps
-                //apps.forEach({print($0?.name)})
             }
-            
         }
         
         //completion
         dispatchGroup.notify(queue: .main) {
             print("completed your dispatch group tasks")
             self.activityIndicatorView.stopAnimating()
-            if let group = group1 {
+            if let group = appGroupSection {
                 self.groups.append(group)
             }
-            if let group = group2 {
+            if let group = topGrowsingAppsGroupSection {
                 self.groups.append(group)
             }
-            if let group = group3 {
+            if let group = topFreeAppsGroupSection {
                 self.groups.append(group)
             }
             self.collectionView.reloadData()

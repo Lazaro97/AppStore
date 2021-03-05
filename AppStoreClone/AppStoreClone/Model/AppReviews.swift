@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct Reviews: Decodable {
+struct AppReviews: Decodable {
     let feed: ReviewFeed
 }
 

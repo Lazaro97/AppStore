@@ -12,7 +12,7 @@ import UIKit
 class AppHeaderCVC: HorizontalSnappingCollectionViewController,UICollectionViewDelegateFlowLayout {
 
     let appHeaderCell = "AppHeaderCell"
-    var socialApps = [HeaderSocialApp]()
+    var socialApps = [HeaderSocialSection]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,11 +48,11 @@ class AppHeaderCVC: HorizontalSnappingCollectionViewController,UICollectionViewD
     
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: appHeaderCell, for: indexPath) as! AppHeaderCell
+        let headerCell = collectionView.dequeueReusableCell(withReuseIdentifier: appHeaderCell, for: indexPath) as! AppHeaderCell
         let app = self.socialApps[indexPath.item]
-        cell.companyLabel.text = app.name
-        cell.titleLabel.text = app.tagline
-        cell.imageView.sd_setImage(with: URL(string: app.imageUrl))
-        return cell
+        headerCell.companyLabel.text = app.name
+        headerCell.titleLabel.text = app.tagline
+        headerCell.imageView.sd_setImage(with: URL(string: app.imageUrl))
+        return headerCell
     }
 }
