@@ -18,7 +18,8 @@ class AppFullScreenController: UITableViewController {
         tableView.tableFooterView = UIView()
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
-
+        tableView.contentInsetAdjustmentBehavior  =  .never
+        tableView.contentInset = .init(top: 0, left: 0, bottom: 50, right: 0)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -31,6 +32,7 @@ class AppFullScreenController: UITableViewController {
             let headerCell = AppFullScreenHeaderCell()
             headerCell.closeButton.addTarget(self, action: #selector(handleDismiss), for: .touchUpInside)
             headerCell.todayCell.todayItem = todayItem
+            headerCell.todayCell.layer.cornerRadius = 0
             return headerCell
         }
         

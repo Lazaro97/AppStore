@@ -11,15 +11,15 @@ class TodayCVC: UICollectionViewController,UICollectionViewDelegateFlowLayout {
     
     
     let items = [
-        TodayItem(category: "Life", title: "Lazaro", image: #imageLiteral(resourceName: "apps"), description: "Lazaro", backgroundColor: .cyan),
-        TodayItem(category: "Holidays", title: "Travel on a budget", image: #imageLiteral(resourceName: "star"), description: "Find out", backgroundColor: .black)
+        TodayItem(category: "Life", title: "Lazaro", image: #imageLiteral(resourceName: "search"), description: "Lazaro", backgroundColor: .systemYellow),
+        TodayItem(category: "Holidays", title: "Travel on a budget", image: #imageLiteral(resourceName: "star"), description: "Find out", backgroundColor: .white)
     ]
     
     fileprivate let cellID = "celllID"
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
-        collectionView.backgroundColor = .yellow
+        collectionView.backgroundColor = .systemGray6
         collectionView.register(TodayCell.self, forCellWithReuseIdentifier: cellID)
     }
     init(){
@@ -49,7 +49,7 @@ class TodayCVC: UICollectionViewController,UICollectionViewDelegateFlowLayout {
         addChild(appFullscreenController)
         
         self.appFullscreenController = appFullscreenController
-        
+        self.collectionView.isUserInteractionEnabled = false
         guard let cell = collectionView.cellForItem(at: indexPath) else { return }
         
         // absolute coordindates of cell
@@ -57,8 +57,7 @@ class TodayCVC: UICollectionViewController,UICollectionViewDelegateFlowLayout {
         
         self.startingFrame = startingFrame
 
-        // auto layout constraint animations
-        // 4 anchors
+        
         fullscreenView.translatesAutoresizingMaskIntoConstraints = false
         topConstraint = fullscreenView.topAnchor.constraint(equalTo: view.topAnchor, constant: startingFrame.origin.y)
         leadingConstraint = fullscreenView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: startingFrame.origin.x)
@@ -78,9 +77,11 @@ class TodayCVC: UICollectionViewController,UICollectionViewDelegateFlowLayout {
             self.heightConstraint?.constant = self.view.frame.height
             
             self.view.layoutIfNeeded() // starts animation
-
-//            self.tabBarController?.tabBar.transform = CGAffineTransform(translationX: 0, y: 100)
             self.tabBarController?.tabBar.frame.origin.y = self.view.frame.size.height
+            
+            guard let cell = self.appFullscreenController.tableView.cellForRow(at: [0,0]) as? AppFullScreenHeaderCell else {return}
+            cell.todayCell.topConstraint.constant = 48
+            cell.layoutIfNeeded()
 
         }, completion: nil)
     }
@@ -106,12 +107,13 @@ class TodayCVC: UICollectionViewController,UICollectionViewDelegateFlowLayout {
             }
             
             guard let cell = self.appFullscreenController.tableView.cellForRow(at: [0, 0]) as? AppFullScreenHeaderCell else { return }
-            cell.todayCell.topConstraint.constant = 68
+            cell.todayCell.topConstraint.constant = 24
             cell.layoutIfNeeded()
             
         }, completion: { _ in
             self.appFullscreenController.view.removeFromSuperview()
             self.appFullscreenController.removeFromParent()
+            self.collectionView.isUserInteractionEnabled = true
         })
     }
     
