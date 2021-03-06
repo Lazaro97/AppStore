@@ -22,7 +22,7 @@ class AppsHorizontalCVC: HorizontalSnappingCollectionViewController,UICollection
     
     
     private func configureCollectionView(){
-        collectionView.backgroundColor = .brown
+        collectionView.backgroundColor = .clear
         collectionView.register(AppHorizontalRowCell.self, forCellWithReuseIdentifier: appsHorizontallCell)
     }
     

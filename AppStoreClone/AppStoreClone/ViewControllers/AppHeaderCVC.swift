@@ -21,7 +21,7 @@ class AppHeaderCVC: HorizontalSnappingCollectionViewController,UICollectionViewD
     }
     
     private func congfigureCollectionView(){
-        collectionView.backgroundColor = .purple
+        collectionView.backgroundColor = .white
         collectionView.register(AppHeaderCell.self, forCellWithReuseIdentifier: appHeaderCell)
     }
     

@@ -13,6 +13,7 @@ class AppPageHeader: UICollectionReusableView {
     
     override init(frame: CGRect){
         super.init(frame: frame)
+        backgroundColor = .white
         addSubview(appHeaderHorizontalController.view)
         appHeaderHorizontalController.view.fillSuperview()
     }

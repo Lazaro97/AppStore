@@ -20,6 +20,7 @@ class AppPreviewCVC: HorizontalSnappingCollectionViewController, UICollectionVie
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
+        collectionView.backgroundColor = .white
     }
     
     func configureCollectionView(){

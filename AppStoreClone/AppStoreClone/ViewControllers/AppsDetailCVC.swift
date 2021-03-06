@@ -31,7 +31,6 @@ class AppsDetailCVC: UICollectionViewController, UICollectionViewDelegateFlowLay
             }
             
         let reviewsURL =  "https://itunes.apple.com/rss/customerreviews/page=1/id=\(appId ?? "")/sortby=mostrecent/json?l=en&cc=us"
-        //print(reviewsURL)
             Service.shared.fetchAppReview(urlString: reviewsURL) { (review, error) in
                 self.reviews = review
                 
@@ -46,7 +45,7 @@ class AppsDetailCVC: UICollectionViewController, UICollectionViewDelegateFlowLay
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.backgroundColor = .green
+        collectionView.backgroundColor = .white
         configureCollectionView()
         configureCollectionFlowLayout()
         navigationItem.largeTitleDisplayMode = .never

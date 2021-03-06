@@ -15,13 +15,12 @@ class AppHorizontalRowCell: UICollectionViewCell {
     
     override init(frame: CGRect){
         super.init(frame: frame)
-        backgroundColor = .cyan
-        
-        appImageView.backgroundColor = .green
+        backgroundColor = .clear
+        getAppButton.setTitleColor(.systemBlue, for: .normal)
         appImageView.constrainWidth(constant: 64)
         appImageView.constrainHeight(constant: 64)
         
-        getAppButton.backgroundColor = UIColor(white: 0.5, alpha: 1)
+        getAppButton.backgroundColor = .systemGray6
         getAppButton.constrainWidth(constant: 80)
         getAppButton.constrainHeight(constant: 32)
         getAppButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)

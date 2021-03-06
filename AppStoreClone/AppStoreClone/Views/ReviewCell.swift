@@ -18,7 +18,7 @@ class ReviewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .systemPink
+        backgroundColor = .systemGray6
         layer.cornerRadius = 16
         clipsToBounds = true
         configureConstraints()

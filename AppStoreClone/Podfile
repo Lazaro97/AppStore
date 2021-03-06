@@ -7,5 +7,7 @@ target 'AppStoreClone' do
 
   # Pods for AppStoreClone
 pod 'SDWebImage', '~> 5.0'
+    pod 'Reveal-SDK', :configurations => ['Debug']
+
 
 end

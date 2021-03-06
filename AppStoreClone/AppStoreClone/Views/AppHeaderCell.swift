@@ -15,37 +15,38 @@ class AppHeaderCell: UICollectionViewCell {
     
     override init(frame: CGRect){
         super.init(frame: frame)
-        backgroundColor = .black
-        
-        imageView.backgroundColor =  .brown
+        backgroundColor = .clear
+        titleLabel.textColor = .black
+        companyLabel.textColor = .systemBlue
+        imageView.backgroundColor =  .clear
         titleLabel.numberOfLines = 2
         configureConstraints()
     }
     
     func configureConstraints(){
-        addSubview(companyLabel)
+        contentView.addSubview(companyLabel)
         companyLabel.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(titleLabel)
+        contentView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(imageView)
+        contentView.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             //SetupCompanyLabel
-            companyLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 15),
-            companyLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
-            companyLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
+            companyLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
+            companyLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            companyLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             
             //Setup Title label
             titleLabel.topAnchor.constraint(equalTo: companyLabel.bottomAnchor, constant: 12),
-            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
-            titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             
             //SetImageView
             imageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
-            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            imageView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            imageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
         ])
     }
     

@@ -14,6 +14,7 @@ class AppScreenshotCell: UICollectionViewCell {
     override init(frame:CGRect) {
         super.init(frame: frame)
         configureScreenShotsConstraints()
+        backgroundColor = .white
     }
     
     func configureScreenShotsConstraints(){

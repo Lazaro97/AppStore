@@ -15,7 +15,7 @@ class AppGroupCell: UICollectionViewCell {
     
     override init(frame: CGRect){
         super.init(frame: frame)
-        backgroundColor = .white
+        backgroundColor = .clear
         configureTitleLabel()
         addSubview(appHorizontalVC.view)
         appHorizontalVC.view.anchor(top: titleLabelSection.bottomAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)

@@ -1,18 +1,22 @@
 PODS:
+  - Reveal-SDK (28)
   - SDWebImage (5.10.4):
     - SDWebImage/Core (= 5.10.4)
   - SDWebImage/Core (5.10.4)
 
 DEPENDENCIES:
+  - Reveal-SDK
   - SDWebImage (~> 5.0)
 
 SPEC REPOS:
   trunk:
+    - Reveal-SDK
     - SDWebImage
 
 SPEC CHECKSUMS:
+  Reveal-SDK: 1a2a678648fc4d277bad71c86d15530424324288
   SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
 
-PODFILE CHECKSUM: 82657c1ef88fced999f8d1508a7cb67605a8d7f8
+PODFILE CHECKSUM: 1b61b73ba3a7f88c54c0624a386c6824cff28a2a
 
 COCOAPODS: 1.9.1
