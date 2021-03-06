@@ -21,8 +21,8 @@ class AppSearchCVC: UICollectionViewController,
         let label = UILabel()
         label.text = "Please enter search term above"
         label.textAlignment = .center
-        label.textColor = .systemBackground
-        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.textColor = .black
+        label.font = UIFont.boldSystemFont(ofSize: 24)
         return label
     }()
     

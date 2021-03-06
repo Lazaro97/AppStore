@@ -12,7 +12,7 @@ class AppSearchCell: UICollectionViewCell {
    
     override init(frame: CGRect){
         super.init(frame: frame)
-        backgroundColor = .yellow
+        backgroundColor = .clear
         configureStackViews()
     }
     
@@ -78,7 +78,7 @@ class AppSearchCell: UICollectionViewCell {
     
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .systemBackground
+        label.textColor = .black
         label.text = "App Name"
         return label
     }()
@@ -86,14 +86,14 @@ class AppSearchCell: UICollectionViewCell {
     let sectionLabel: UILabel = {
         let label = UILabel()
         label.text = "Photos and Videos"
-        label.textColor = .systemBackground
+        label.textColor = .black
         return label
     }()
     
     let ratingLabel: UILabel = {
         let label = UILabel()
         label.text = "0.24"
-        label.textColor = .systemBackground
+        label.textColor = .black
         return label
     }()
     
