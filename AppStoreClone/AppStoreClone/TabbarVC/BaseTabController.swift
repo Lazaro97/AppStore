@@ -32,7 +32,7 @@ class BaseTabController: UITabBarController {
         viewControllers = [
             createNavController(viewController: AppsPageVC(), title: "Apps", imageName: "apps"),
             createNavController(viewController: AppSearchCVC(), title: "Search", imageName: "search"),
-            createNavController(viewController: UIViewController(), title: "Today", imageName: "today_icon")
+            createNavController(viewController: TodayCVC(), title: "Today", imageName: "today_icon")
         ]
     }    
 }

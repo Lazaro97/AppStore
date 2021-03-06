@@ -40,6 +40,8 @@
 		8C7BA88225F2D8A60016C07C /* AppHeaderCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7BA87A25F2D8A60016C07C /* AppHeaderCVC.swift */; };
 		8C7BA88325F2D8A60016C07C /* ReviewRowCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7BA87B25F2D8A60016C07C /* ReviewRowCVC.swift */; };
 		8C7BA88425F2D8A60016C07C /* AppSearchCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7BA87C25F2D8A60016C07C /* AppSearchCVC.swift */; };
+		8CD6F77B25F3221200D89BDD /* TodayCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD6F77A25F3221200D89BDD /* TodayCVC.swift */; };
+		8CD6F77F25F322B800D89BDD /* TodayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD6F77E25F322B800D89BDD /* TodayCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +82,8 @@
 		8C7BA87A25F2D8A60016C07C /* AppHeaderCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppHeaderCVC.swift; sourceTree = "<group>"; };
 		8C7BA87B25F2D8A60016C07C /* ReviewRowCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewRowCVC.swift; sourceTree = "<group>"; };
 		8C7BA87C25F2D8A60016C07C /* AppSearchCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSearchCVC.swift; sourceTree = "<group>"; };
+		8CD6F77A25F3221200D89BDD /* TodayCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCVC.swift; sourceTree = "<group>"; };
+		8CD6F77E25F322B800D89BDD /* TodayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +172,8 @@
 				8C7BA87A25F2D8A60016C07C /* AppHeaderCVC.swift */,
 				8C7BA87B25F2D8A60016C07C /* ReviewRowCVC.swift */,
 				8C7BA87C25F2D8A60016C07C /* AppSearchCVC.swift */,
+				8CD6F77A25F3221200D89BDD /* TodayCVC.swift */,
+				8CD6F77E25F322B800D89BDD /* TodayCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -369,6 +375,7 @@
 				8C7BA87D25F2D8A60016C07C /* AppPreviewCVC.swift in Sources */,
 				8C7BA88025F2D8A60016C07C /* AppsDetailCVC.swift in Sources */,
 				8C7BA86C25F2D8A10016C07C /* AppScreenshotCell.swift in Sources */,
+				8CD6F77B25F3221200D89BDD /* TodayCVC.swift in Sources */,
 				8C7BA85B25F2D8950016C07C /* VerticalStackView.swift in Sources */,
 				8C7BA87225F2D8A10016C07C /* AppPreviewCell.swift in Sources */,
 				8C7BA88325F2D8A60016C07C /* ReviewRowCVC.swift in Sources */,
@@ -390,6 +397,7 @@
 				8C7BA87125F2D8A10016C07C /* AppSearchCell.swift in Sources */,
 				8C7BA82E25F2D83A0016C07C /* AppDelegate.swift in Sources */,
 				8C7BA83025F2D83A0016C07C /* SceneDelegate.swift in Sources */,
+				8CD6F77F25F322B800D89BDD /* TodayCell.swift in Sources */,
 				8C7BA86B25F2D8A10016C07C /* AppHeaderCell.swift in Sources */,
 				8C7BA84925F2D8740016C07C /* Service.swift in Sources */,
 				8C7BA88425F2D8A60016C07C /* AppSearchCVC.swift in Sources */,
